@@ -80,7 +80,7 @@ env = DHSSystem(
 )
 
 # prepare Malahanobis weighting
-lam = cs.repmat([1, 0], 1, N)
+lam = cs.repmat([1, 0], 1, N) if sim_type != "w_av" else cs.repmat([0.5, 0.5], 1, N)
 if sim_type in ["mal_indietro", "mal_avanti"]:
     mat = loadmat("prediction_model/training_data/Power_lowconsumption.mat")
     data_ref_1 = np.vstack([mat["T"].T] + [mat[f"P{i}"].T for i in range(1, 6)]).T
