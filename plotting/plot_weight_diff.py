@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.getcwd())
-from tikz import save2tikz
+# from tikz import save2tikz
 
 files = [
-    "results/ECC/weights/new/3_day/sim_data_mpc_mal_indietro_mhe.pkl",
-    "results/ECC/weights/new/3_day/sim_data_mpc_mal_opt_mhe.pkl",
+    "results/mal_indietro_loads_4.pkl",
+    "results/mal_avanti_loads_4.pkl",
 ]
-names = ["mal indietro", "mal opt"]
+names = ["mal indietro", "mal avanti"]
 
 lam = []
 for name in files:
@@ -27,7 +27,7 @@ fig, ax = plt.subplots(1, 1, sharex=True)
 ax.plot(
     np.array(
         [
-            np.linalg.norm(lam[0][:, [k]] * np.ones((2, 72)) - lam[1][:, :, k])
+            np.linalg.norm(lam[0][:, :, k] - lam[1][:, :, k])
             for k in range(lam[0].shape[1])
         ]
     ).squeeze()
@@ -35,6 +35,6 @@ ax.plot(
 ax.set_ylabel("lam sym")
 ax.set_xlabel("Time (5 min steps)")
 
-save2tikz(plt.gcf())
+# save2tikz(plt.gcf())
 
 plt.show()

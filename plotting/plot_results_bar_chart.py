@@ -6,16 +6,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.getcwd())
-from tikz import save2tikz
+# from tikz import save2tikz
 
 files = [
-    "results/ECC/weights/new/3_day/sim_data_mpc_rule_str.pkl",
-    "results/ECC/weights/new/3_day/sim_data_mpc_50_50_mhe.pkl",
-    "results/ECC/weights/new/3_day/sim_data_mpc_opt_mhe.pkl",
-    "results/ECC/weights/new/3_day/sim_data_mpc_mal_indietro_mhe.pkl",
-    "results/ECC/weights/new/3_day/sim_data_mpc_mal_opt_mhe.pkl",
+    "results/rule_loads_4.pkl",
+    "results/w_av_loads_4.pkl",
+    "results/opt_loads_4.pkl",
+    "results/mal_indietro_loads_4.pkl",
+    "results/mal_avanti_loads_4.pkl",
 ]
-names = ["rule str", "50_50", "qp", "mal indietro", "mal opt"]
+names = ["rule", "w_av", "opt", "mal indietro", "mal avanti"]
 
 y = []
 r = []
@@ -50,6 +50,6 @@ ax[1].set_yscale("log")
 ax[0].set_ylabel("Euro ($)")
 ax[1].set_ylabel("Viol symbol")
 
-save2tikz(plt.gcf())
+# save2tikz(plt.gcf())
 
 plt.show()

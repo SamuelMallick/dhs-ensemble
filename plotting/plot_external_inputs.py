@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.getcwd())
-from tikz import save2tikz
+# from tikz import save2tikz
 
-loads_folder = "simulations/loads_4"
+loads_folder = "sim_data/loads_4"
 sim_len = 288 * 3
 
 # load data
@@ -39,5 +39,5 @@ ax[0].set_ylabel("P_l (kW)")
 ax[1].set_ylabel("c ($/kWh)")
 ax[2].set_ylabel("T (°C)")
 
-save2tikz(plt.gcf())
+# save2tikz(plt.gcf())
 plt.show()
