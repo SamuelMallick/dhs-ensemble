@@ -28,7 +28,7 @@ ax.plot(
     np.array(
         [
             np.linalg.norm(lam[0][:, :, k] - lam[1][:, :, k])
-            for k in range(lam[0].shape[1])
+            for k in range(lam[0].shape[2])
         ]
     ).squeeze()
 )

@@ -44,7 +44,7 @@ for y_ in y:
     o = np.linalg.norm(o, axis=1)
     vols.append(np.sum(o))
 ax[1].bar(names, vols)
-ax[1].set_yscale("log")
+# ax[1].set_yscale("log")
 
 # labels
 ax[0].set_ylabel("Euro ($)")
