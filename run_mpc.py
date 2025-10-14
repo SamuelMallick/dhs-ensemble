@@ -144,7 +144,7 @@ mpc_kwargs = {
 
 mpc = mpc_class(
     **mpc_kwargs,
-    mal_weighter=mal_weighting if sim_type in ["mal_indietro", "mal_avanti"] else None,
+    mal_weighter=mal_weighting if sim_type == "mal_avanti" else None,
 )
 mhes = [
     mhe_class(
