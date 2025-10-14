@@ -1,0 +1,2 @@
+matplotlib==3.10.7
+tikzplotlib==0.10.1
