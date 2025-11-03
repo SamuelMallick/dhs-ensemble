@@ -19,12 +19,14 @@ names = ["rule", "w_av", "opt", "mal indietro", "mal avanti"]
 
 y = []
 r = []
+times = []
 for name in files:
     try:
         with open(name, "rb") as f:
             data = pickle.load(f)
             y.append(data["y"])
             r.append(data["r"])
+            times.append(data['solver_time_mpc'])
     except FileNotFoundError:
         raise FileNotFoundError(f"File {name} not found. Run sim first.")
 
@@ -49,6 +51,9 @@ ax[1].bar(names, vols)
 # labels
 ax[0].set_ylabel("Euro ($)")
 ax[1].set_ylabel("Viol symbol")
+
+time_means = [np.mean(t) for t in times]
+time_stds = [np.std(t) for t in times]
 
 # save2tikz(plt.gcf())
 

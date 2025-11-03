@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.getcwd())
-# from tikz import save2tikz
+from tikz import save2tikz
 
 files = [
     "results/mal_indietro_loads_4.pkl",
@@ -35,6 +35,6 @@ ax.plot(
 ax.set_ylabel("lam sym")
 ax.set_xlabel("Time (5 min steps)")
 
-# save2tikz(plt.gcf())
+save2tikz(plt.gcf())
 
 plt.show()

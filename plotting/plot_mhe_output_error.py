@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.getcwd())
-# from tikz import save2tikz
+from tikz import save2tikz
 
 file = "results/mal_avanti_loads_4.pkl"
 
@@ -37,6 +37,6 @@ ax[1].set_xlabel("Time (5 min steps)")
 ax[0].set_ylabel("y err")
 ax[1].set_ylabel("y err")
 
-# save2tikz(plt.gcf())
+save2tikz(plt.gcf())
 
 plt.show()

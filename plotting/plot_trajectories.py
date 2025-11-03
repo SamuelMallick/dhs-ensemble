@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.getcwd())
-# from tikz import save2tikz
+from tikz import save2tikz
 
 files = [
     "results/rule_loads_4.pkl",
@@ -36,6 +36,6 @@ for i, y_ in enumerate(y):
 # labels
 ax[0].set_ylabel("T_s (°C)")
 
-# save2tikz(plt.gcf())
+save2tikz(plt.gcf())
 
 plt.show()
