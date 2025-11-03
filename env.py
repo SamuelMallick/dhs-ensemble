@@ -171,12 +171,23 @@ class DHSSystem(gym.Env[np.ndarray, np.ndarray]):
         elif action.shape[0] == 3:
             action = np.array([action[1] - action[0], action[2]])
         step_counter = 0
+
+        P_loads = self.P_loads[:, [int(np.round(self.time)/self.step_size)]]
+        u = np.vstack(
+            [action, P_loads]
+        )  # %1 because loads change every second
+        self.fmu.setReal(self.inputs, list(u))
+        info = {
+            "P_loads": P_loads.squeeze(),
+        }
+
         while step_counter < self.num_internal_steps:
             if step_counter % int(1 / self.internal_step_size) == 0:
-                u = np.vstack(
-                    [action, self.P_loads[:, [int(self.time % 1)]]]
-                )  # %1 because loads change every second
-                self.fmu.setReal(self.inputs, list(u))
+                # u = np.vstack(
+                #     [action, self.P_loads[:, [int(np.ceil(self.time))]]]
+                # )  # %1 because loads change every second
+                # self.fmu.setReal(self.inputs, list(u))
+                pass
             r += self.get_stage_cost(self.y, action) * (
                 self.step_size / self.num_internal_steps
             )
@@ -193,7 +204,7 @@ class DHSSystem(gym.Env[np.ndarray, np.ndarray]):
                     )  # enforce storage flow to respect min boiler flow
                     print(f"Storage flow modified to {action[0]}")
                     u = np.vstack(
-                        [action, self.P_loads[:, [int(self.time % 1)]]]
+                        [action, P_loads]
                     )  # %1 because loads change every second
                     self.fmu.setReal(self.inputs, list(u))
             step_counter += 1
@@ -204,7 +215,7 @@ class DHSSystem(gym.Env[np.ndarray, np.ndarray]):
             r,
             False,
             False,
-            {"P_loads": self.P_loads[:, int(self.time % 1)]},
+            info,
         )
 
     def endogenous_model_change(self):
