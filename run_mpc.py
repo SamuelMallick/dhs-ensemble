@@ -8,9 +8,7 @@ from scipy.io import loadmat
 from typing_extensions import Literal
 
 from env import DHSSystem
-from mpc.mpc import (
-    DhsStorageMpcEnsemble,
-)
+from mpc.mpc import DhsStorageMpcEnsemble
 from observer.mhe import MHE
 from observer.trivial_observer import TrivialEnsembleObserver
 from prediction_model.weights import MahalanobisWeighting, OptWeighting

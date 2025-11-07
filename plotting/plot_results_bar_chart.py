@@ -26,7 +26,7 @@ for name in files:
             data = pickle.load(f)
             y.append(data["y"])
             r.append(data["r"])
-            times.append(data['solver_time_mpc'])
+            times.append(data["solver_time_mpc"])
     except FileNotFoundError:
         raise FileNotFoundError(f"File {name} not found. Run sim first.")
 

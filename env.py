@@ -172,10 +172,8 @@ class DHSSystem(gym.Env[np.ndarray, np.ndarray]):
             action = np.array([action[1] - action[0], action[2]])
         step_counter = 0
 
-        P_loads = self.P_loads[:, [int(np.round(self.time)/self.step_size)]]
-        u = np.vstack(
-            [action, P_loads]
-        )  # %1 because loads change every second
+        P_loads = self.P_loads[:, [int(np.round(self.time) / self.step_size)]]
+        u = np.vstack([action, P_loads])  # %1 because loads change every second
         self.fmu.setReal(self.inputs, list(u))
         info = {
             "P_loads": P_loads.squeeze(),
