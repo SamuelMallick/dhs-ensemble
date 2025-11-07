@@ -52,8 +52,8 @@ ax[1].bar(names, vols)
 ax[0].set_ylabel("Euro ($)")
 ax[1].set_ylabel("Viol symbol")
 
-time_means = [np.mean(t) for t in times]
-time_stds = [np.std(t) for t in times]
+time_means = [t[t != 0].mean() for t in times]
+time_stds = [t[t != 0].std() for t in times]
 
 # save2tikz(plt.gcf())
 
