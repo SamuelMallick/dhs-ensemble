@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 sys.path.append(os.getcwd())
-from tikz import save2tikz
+from plotting.tikz import save2tikz
 
 file = "results/mal_avanti_loads_4.pkl"
 
