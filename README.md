@@ -12,7 +12,11 @@ In this work we propose a control and estimation framework, based on ensemble mo
 If you find the paper or this repository helpful in your publications, please consider citing it.
 
 ```bibtex
-@article{
+@article{de2025model,
+  title={Model Predictive Control and Moving Horizon Estimation using Statistically Weighted Data-Based Ensemble Models},
+  author={de Giuli, Laura Boca and Mallick, Samuel and La Bella, Alessio and Dabiri, Azita and De Schutter, Bart and Scattolini, Riccardo},
+  journal={arXiv preprint arXiv:2511.21343},
+  year={2025}
 }
 ```
 
