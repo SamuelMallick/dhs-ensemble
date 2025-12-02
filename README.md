@@ -5,7 +5,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-This repository contains the source code used to produce the results obtained in [Model Predictive Control and Moving Horizon Estimation using Statistically Weighted Data-Based Ensemble Models]() submitted to [ECC 2026](https://ecc26.euca-ecc.org/).
+This repository contains the source code used to produce the results obtained in [Model Predictive Control and Moving Horizon Estimation using Statistically Weighted Data-Based Ensemble Models](https://arxiv.org/abs/2511.21343) submitted to [ECC 2026](https://ecc26.euca-ecc.org/).
 
 In this work we propose a control and estimation framework, based on ensemble models, for the optimal control of complex systems under multiple operating conditions.
 
